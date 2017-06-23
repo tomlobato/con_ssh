@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm con_ssh-*.gem
+gem build con_ssh.gemspec 
+gem push con_ssh-*.gem
