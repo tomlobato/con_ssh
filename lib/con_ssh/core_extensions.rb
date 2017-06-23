@@ -2,7 +2,7 @@
 class String
   def strip_text
     split("\n")
-    .map{|l| l.trip}
+    .map{|l| l.strip}
     .join("\n")
   end
 end
