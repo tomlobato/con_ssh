@@ -22,7 +22,7 @@ class SSHCon
       ign_arg_warn args, 2
       parse_conf
       conn_conf = @conn_confs[args[0]]
-      unless conn_confs
+      unless conn_conf
         warn "Shorcut #{args[0]} not found. See #{CONF_PATH}."
         exit 1
       end
@@ -33,16 +33,21 @@ class SSHCon
       end
       knock conn_conf.host, ports
 
-    # connect
-    elsif conn_conf = @conn_confs[args[0]]
-      ign_arg_warn args, 1
-      parse_conf
-      ssh conn_conf
-
     # help
     elsif ['-h'].include? args[0]
       ign_arg_warn args, 1
       print_help
+
+    # connect
+    elsif args[0]
+      ign_arg_warn args, 1
+      parse_conf
+      conn_conf = @conn_confs[args[0]]
+      unless conn_conf
+        warn "Shorcut #{args[0]} not found. See #{CONF_PATH}."
+        exit 1
+      end
+      ssh conn_conf
 
     # fail
     else
