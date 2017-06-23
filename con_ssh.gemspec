@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = "con_ssh"
-  s.version       = "0.0.2"
+  s.version       = "0.0.3"
   s.authors       = ["Tom Lobato"]
   s.email         = "lobato@bettercall.io"
   # s.homepage      = "http://sys-watchdog.bettercall.io/"
@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- test/*`.split("\n")
   s.require_paths = ["lib"]
   s.executables   = %w(con)
-  s.required_ruby_version = '>= 2.1.0'
+  s.required_ruby_version = '>= 2.0.0'
 end
 
