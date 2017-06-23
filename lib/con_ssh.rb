@@ -14,12 +14,12 @@ class SSHCon
   def run *args
     # setup
     if args[0] == 'setup'
-      warn "Ignoring arguments after #{args[0]}." if args.length > 1
+      ign_arg_warn args, 1
       install_sample_conf
 
     # knock / unknock
     elsif ['knock', 'unknock'].include? args[1] 
-      warn "Ignoring arguments after #{args[1]}." if args.length > 2
+      ign_arg_warn args, 2
       parse_conf
       conn_conf = @conn_confs[args[0]]
       unless conn_confs
@@ -35,13 +35,13 @@ class SSHCon
 
     # connect
     elsif conn_conf = @conn_confs[args[0]]
-      warn "Ignoring arguments after #{args[0]}." if args.length > 1      
+      ign_arg_warn args, 1
       parse_conf
       ssh conn_conf
 
     # help
     elsif ['-h'].include? args[0]
-      warn "Ignoring arguments after #{args[0]}." if args.length > 1      
+      ign_arg_warn args, 1
       print_help
 
     # fail
@@ -145,6 +145,10 @@ class SSHCon
 
   # Util
   
+  def ign_arg_warn args, max
+    warn "Ignoring arguments after #{args[0]}." if args.length > max
+  end
+
   def warn desc
     $stderr.puts desc
   end
