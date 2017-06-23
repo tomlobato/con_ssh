@@ -159,7 +159,7 @@ class SSHCon
   end
 
   def skip_line? line
-    line =~ /^\s*[$#]/
+    line =~ /^\s*($|#)/
   end
 
   def has_knock
