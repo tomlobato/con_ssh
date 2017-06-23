@@ -124,11 +124,6 @@ class SSHCon
   def adjust_conn_conf c
     c.knock  = c.knock.split ',' if c.knock 
     c.unknock = c.unknock.split ',' if c.unknock 
-
-    if c.host =~ /^(.*?)@(.*?)$/
-      c.host = $2
-      c.user ||= $1
-    end
   end
 
   def install_sample_conf
@@ -141,8 +136,8 @@ class SSHCon
     # *user, port, knock, unknock are optionals.
 
     s1  server_1  123.234.35.456
-    s1r server_1r root@123.234.35.456
-    s3  server_3  123.234.35.456  username  2222  knock unknock"
+    s1r server_1r 123.234.35.456
+    s3  server_3  123.234.35.456  username  2222  123,234,456 567,678,789"
     File.write CONF_PATH, sample_conf.strip_text
     true
   end

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = "con_ssh"
-  s.version       = "0.0.7"
+  s.version       = "0.0.8"
   s.authors       = ["Tom Lobato"]
   s.email         = "lobato@bettercall.io"
   s.homepage      = "https://tomlobato.github.io/con_ssh/"
