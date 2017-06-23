@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name          = "con_ssh"
-  s.version       = "0.0.5"
+  s.version       = "0.0.6"
   s.authors       = ["Tom Lobato"]
   s.email         = "lobato@bettercall.io"
-  # s.homepage      = "http://sys-watchdog.bettercall.io/"
+  s.homepage      = "https://tomlobato.github.io/con_ssh/"
   s.summary       = "SSH cli wrapper."
   s.description   = "#{s.summary}."
   s.licenses      = ["MIT"]
