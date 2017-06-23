@@ -69,7 +69,7 @@ class SSHCon
              Please install: 'apt-get install knockd', 'brew install knock', ...".strip_text
         warn msg
       return
-      end
+    end
     run_cmd "knock #{ host } #{ ports.join ' ' }", false
   end
 
@@ -88,7 +88,7 @@ class SSHCon
   def add_connection line
     return if skip_line? line
     
-    values = line.split /\s+/
+    values = line.split(/\s+/)
     
     conn_conf = OpenStruct.new
     CONF_LINE_FIELDS.each_with_index do |field, idx|
@@ -117,7 +117,7 @@ class SSHCon
   end
 
   def adjust_conn_conf c
-    c.knock  = c.knock.split  ',' if c.knock 
+    c.knock  = c.knock.split ',' if c.knock 
     c.unknock = c.unknock.split ',' if c.unknock 
 
     if c.host =~ /^(.*?)@(.*?)$/
@@ -167,9 +167,9 @@ class SSHCon
 
   def run_cmd cmd, print = true
     puts "run: #{cmd}" if print
-      output = `#{cmd} 2>&1`
-      exit_status = $?.to_i
-      unless exit_status == 0
+    output = `#{cmd} 2>&1`
+    exit_status = $?.to_i
+    unless exit_status == 0
       warn "Non-zero output: #{output}"
     end
     [exit_status, output]

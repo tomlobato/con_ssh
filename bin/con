@@ -3,4 +3,4 @@
 require 'ostruct'
 require 'con_ssh'
 
-SSHCon.new.run *ARGV 
+SSHCon.new.run(*ARGV)
