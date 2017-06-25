@@ -62,9 +62,19 @@ class SSHCon
   def ssh c
     port = (c.port && c.port != DEFAULT_PORT) ? "-p #{ c.port } " : ''
     user = c.user ? "#{ c.user }@" : ''
-    knock c.host, c.knock if c.knock
+
+    if c.knock
+      puts "knock`ing"
+      knock c.host, c.knock 
+      sleep 1
+    end
+
     system "ssh #{port}#{user}#{c.host}"
-    knock c.host, c.unknock if c.unknock
+
+    if c.unknock
+      puts "unknock`ing"
+      knock c.host, c.unknock 
+    end
   end
 
   def knock host, ports
