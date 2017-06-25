@@ -66,7 +66,7 @@ class SSHCon
     if c.knock
       puts "knock`ing"
       knock c.host, c.knock 
-      sleep 1
+      sleep 0.5
     end
 
     system "ssh #{port}#{user}#{c.host}"
