@@ -9,7 +9,7 @@ end
 
 class Exception
   def desc
-    "#{ message } #{ backtrace&.join "\n" }"
+    "#{ message } #{ backtrace.join "\n" if backtrace }"
   end
 end
 
