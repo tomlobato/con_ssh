@@ -69,7 +69,9 @@ class SSHCon
       sleep 0.5
     end
 
-    system "ssh #{port}#{user}#{c.host}"
+    cmd = "ssh #{port}#{user}#{c.host}"
+    puts cmd
+    system cmd
 
     if c.unknock
       puts "unknock`ing"
